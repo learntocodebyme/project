@@ -1,0 +1,13 @@
+CREATE TABLE G12(UserName varchar(20) PRIMARY KEY,Password varchar(20));
+SELECT *FROM G12
+INSERT INTO G12 VALUES('Admin','Admin')
+
+CREATE PROC G123
+
+@UserName varchar(50),
+@Password varchar(50),
+@Flag int out
+AS
+BEGIN
+SET @Flag=(select count(*) from G12 where UserName=@UserName AND Password=@Password)
+END
