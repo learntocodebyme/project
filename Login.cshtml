@@ -1,0 +1,27 @@
+@model Login_MVC.Models.G12
+@{
+    ViewBag.Title = "LOGIN";
+}
+
+<h2>LOGIN</h2>
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td>@Html.LabelFor(J=>J.UserName)</td>
+            <td>@Html.TextBoxFor(J => J.UserName)</td>
+            <td>@Html.ValidationMessageFor(J => J.UserName)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(J => J.Password)</td>
+            <td>@Html.PasswordFor(J => J.Password)</td>
+            <td>@Html.ValidationMessageFor(J => J.Password)</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="LOGIN" /></td>
+            <td></td>
+        </tr>
+    </table>
+}
+
