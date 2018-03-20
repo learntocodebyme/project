@@ -1,0 +1,58 @@
+
+@{
+    ViewBag.Title = "CHANGEPASSWORD";
+}
+
+<h2>CHANGE YOUR PASSWORD</h2>
+
+@using (Html.BeginForm())
+{
+    <table>
+       
+        <tr>
+            <td>@Html.LabelFor(J => J.Password)</td>
+            <td>@Html.PasswordFor(J => J.Password)</td>
+            <td>@Html.ValidationMessageFor(J => J.Password)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(J => J.CnfPassword)</td>
+            <td>@Html.PasswordFor(J => J.CnfPassword)</td>
+            <td>@Html.ValidationMessageFor(J => J.CnfPassword)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(J => J.SecretQ1)</td>
+            <td>@Html.DropDownList(J => J.SecretQ1, new List<SelectListItem> { new SelectListItem { Text = "Mother's maiden name ?" }, new SelectListItem { Text = "Your Birth place ?" } })</td>
+            <td>@Html.ValidationMessageFor(J => J.SecretQ1)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(J => J.SecretA1)</td>
+            <td>@Html.TextBoxFor(J => J.SecretA1)</td>
+            <td>@Html.ValidationMessageFor(J => J.SecretA1)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(J => J.SecretQ2)</td>
+            <td>@Html.DropDownListFor(J => J.SecretQ2, new List<SelectListItem> { new SelectListItem { Text = "Favourite Holiday Destination ?" }, new SelectListItem { Text = "Old Phone Number ?" } })</td>
+            <td>@Html.ValidationMessageFor(J => J.SecretQ2)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(J => J.SecretA2)</td>
+            <td>@Html.TextBoxFor(J => J.SecretA2)</td>
+            <td>@Html.ValidationMessageFor(J => J.SecretA2)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(J => J.SecretQ3)</td>
+            <td>@Html.DropDownListFor(J => J.SecretQ3, new List<SelectListItem> {  new SelectListItem { Text = "Your Brother's Name ?" }, new SelectListItem { Text = "Your nickname ?" } })</td>
+            <td>@Html.ValidationMessageFor(J => J.SecretQ3)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(J => J.SecretA3)</td>
+            <td>@Html.TextBoxFor(J => J.SecretA3)</td>
+            <td>@Html.ValidationMessageFor(J => J.SecretA3)</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="CHANGE PASSWORD"/></td>
+            <td></td>
+        </tr>
+    </table>
+}
