@@ -1,0 +1,64 @@
+
+@{
+    ViewBag.Title = "RegisterSubscriber";
+}
+
+<h2>RegisterSubscriber</h2>
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td>@Html.LabelFor(J => J.Name)</td>
+            <td>@Html.TextBoxFor(J => J.Name)</td>
+            <td>@Html.ValidationMessageFor(J => J.Name)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(J => J.Age)</td>
+            <td>@Html.PasswordFor(J => J.Age)</td>
+            <td>@Html.ValidationMessageFor(J => J.Age)</td>
+        </tr>
+       
+        <tr>
+            <td>@Html.LabelFor(J => J.Address)</td>
+            <td>@Html.PasswordFor(J => J.Address)</td>
+            <td>@Html.ValidationMessageFor(J => J.Address)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(J => J.City)</td>
+            <td>@Html.PasswordFor(J => J.City)</td>
+            <td>@Html.ValidationMessageFor(J => J.City)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(J => J.State)</td>
+            <td>@Html.PasswordFor(J => J.State)</td>
+            <td>@Html.ValidationMessageFor(J => J.State)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(J => J.Contact)</td>
+            <td>@Html.PasswordFor(J => J.Contact)</td>
+            <td>@Html.ValidationMessageFor(J => J.Contact)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(J => J.Email)</td>
+            <td>@Html.PasswordFor(J => J.Email)</td>
+            <td>@Html.ValidationMessageFor(J => J.Email)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(J => J.PlanType)</td>
+            <td>@Html.DropDownListFor(J => J.PlanType, new List<SelectListItem> { new SelectListItem { Text = "Voice" }, new SelectListItem { Text = "Data" },new SelectListItem { Text = "SMS" } })</td>
+            <td>@Html.ValidationMessageFor(J => J.PlanType)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(J => J.SimType)</td>
+            <td>@Html.DropDownListFor(J => J.SimType, new List<SelectListItem> { new SelectListItem { Text = "PostPaid" }, new SelectListItem { Text = "PrePaid" } })</td>
+            <td>@Html.ValidationMessageFor(J => J.SimType)</td>
+        </tr>
+       
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Subscriber" /></td>
+            <td></td>
+        </tr>
+
+        
+        </table>
