@@ -1,0 +1,25 @@
+@{
+    ViewBag.Title = "RegisterExecutive";
+}
+
+<h2>RegisterExecutive</h2>
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td>@Html.LabelFor(J => J.ExecutiveType)</td>
+            <td>@Html.DropDownListFor(J => J.ExecutiveType, new List<SelectListItem> { new SelectListItem { Text = "Account Executive" }, new SelectListItem { Text = "Billing Executive" }})</td>
+            <td>@Html.ValidationMessageFor(J => J.ExecutiveType)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(J => J.UserID)</td>
+            <td>@Html.PasswordFor(J => J.UserID)</td>
+            <td>@Html.ValidationMessageFor(J => J.UserID)</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Register" /></td>
+            <td></td>
+        </tr>
+
+        </table>
