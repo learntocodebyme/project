@@ -1,0 +1,82 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Web;
+
+namespace ProjectTelecom.Models
+{
+    public class Subscriber_Metadata
+    {
+        public string subscriberID { get; set; }
+        public string password { get; set; }
+
+        [Required(ErrorMessage = "Please Enter Name")]
+        [Display(Name = "Name")]
+        [RegularExpression("^[A-Za-z ]+$", ErrorMessage = "Please Enter Alphabets Only")]
+        public string name { get; set; }
+
+        [Required(ErrorMessage = "Please Enter Age")]
+        [Display(Name = "Age")]
+        [RegularExpression("^[0-9]+$", ErrorMessage = "Please Enter Numbers Only")]
+        public Nullable<int> age { get; set; }
+
+        [Required(ErrorMessage = "Please Enter Address")]
+        [Display(Name = "Address")]
+        public string address { get; set; }
+
+        [Required(ErrorMessage = "Please Enter City")]
+        [Display(Name = "City")]
+        [RegularExpression("^[A-Za-z ]+$", ErrorMessage = "Please Enter Alphabets Only")]
+        public string city { get; set; }
+
+        [Required(ErrorMessage = "Please Enter State")]
+        [Display(Name = "State")]
+        [RegularExpression("^[A-Za-z ]+$", ErrorMessage = "Please Enter Alphabets Only")]
+        public string state { get; set; }
+
+        [Required(ErrorMessage = "Please Enter Contact Number")]
+        [Display(Name = "Contact Number")]
+        [RegularExpression("^[0-9]+$", ErrorMessage = "Please Enter Numbers Only")]
+        [StringLength(10,ErrorMessage = "Please Enter 10 Digit Number")]
+        public string contactNumber { get; set; }
+
+        [Required(ErrorMessage = "Please Enter Email Id")]
+        [Display(Name = "Email ID")]
+        [RegularExpression("^[A-Za-z]+[A-Za-z0-9]*@[a-zA-Z]+.[a-zA-Z]+$", ErrorMessage = "Please Enter Valid Email Id")]
+        public string emailID { get; set; }
+
+
+        public string status { get; set; }
+
+        [Display(Name = "Plan ID")]
+        public Nullable<int> planID { get; set; }
+
+        [Required(ErrorMessage = "Please Enter SIM Number")]
+        [Display(Name = "SIM Number")]
+        [RegularExpression("^[0-9]+$", ErrorMessage = "Please Enter Numbers Only")]
+        [StringLength(12, ErrorMessage = "Please Enter 12 Digit Number")]
+        public string SIMNumber { get; set; }
+
+        [Display(Name = "SIM Type")]
+        public string SIMType { get; set; }
+
+        public Nullable<double> balance { get; set; }
+        public Nullable<System.DateTime> timestamp { get; set; }
+        public Nullable<int> question1 { get; set; }
+        public string answer1 { get; set; }
+        public Nullable<int> question2 { get; set; }
+        public string answer2 { get; set; }
+        public Nullable<int> question3 { get; set; }
+        public string answer3 { get; set; }
+
+        public virtual securityQuestions_tms170_team3 securityQuestions_tms170_team3 { get; set; }
+        public virtual securityQuestions_tms170_team3 securityQuestions_tms170_team31 { get; set; }
+        public virtual securityQuestions_tms170_team3 securityQuestions_tms170_team32 { get; set; }
+        public virtual tariffPlans_tms170_team3 tariffPlans_tms170_team3 { get; set; }
+    }
+    [MetadataType(typeof(Subscriber_Metadata))]
+    public partial class subscribers_tms170_team3
+    {
+    }
+}
