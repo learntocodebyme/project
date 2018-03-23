@@ -1,0 +1,89 @@
+using System;
+using System.Collections.Generic;
+using System.Data.Entity.Core.Objects;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.Security;
+using WebApplication2.Models;
+
+namespace WebApplication2.Controllers
+{
+   
+    public class loginController : Controller
+    {
+        // GET: login
+        public ActionResult Login()
+        {
+
+            if (Session["username"] != null)
+            {
+                return RedirectToAction("Mainpage", "login", new { username = Session["username"].ToString() });
+            }
+            else
+            {
+                return View();
+            }
+        }
+        //protected void Application_BeginRequest()
+        //{
+        //    Response.Buffer = true;
+        //    Response.ExpiresAbsolute = DateTime.Now.AddDays(-1d);
+        //    Response.Expires = -1500;
+        //    Response.CacheControl = "no-cache";
+        //    Response.Cache.SetNoStore();
+        //}
+
+        [HttpPost]
+       
+        public ActionResult Login(tbl_proc_login obj)
+        {
+            DB01TEST01Entities d = new DB01TEST01Entities();
+            var userloggedin = d.tbl_proc_login.SingleOrDefault(s => s.username == obj.username && s.password == obj.password);
+            if (userloggedin != null)
+            {
+                ViewBag.message = "LoggedIn";
+                ViewBag.triedonce = "Yes";
+                Session["username"] = obj.username;
+                return RedirectToAction("Mainpage", "login", new { username = obj.username });
+            }
+            else
+            {
+                ViewBag.triedonce = "Yes";
+                return View();
+            }
+        }
+        //, "login", new { username = Session["username"].ToString() }
+  
+        public ActionResult Mainpage(string username)
+        {
+            DB01TEST01Entities d = new DB01TEST01Entities();
+            if (Session["username"] == null)
+            {
+                return RedirectToAction("Login");
+            }
+            else
+            {
+                ViewBag.username = Session["username"];
+                return View();
+            }
+
+        }
+ 
+
+        public ActionResult LogOut()
+
+        {
+            Session.Clear();
+            Session.Abandon();
+            Session.RemoveAll();
+          
+
+        FormsAuthentication.SignOut();
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.Cache.SetExpires(DateTime.UtcNow.AddHours(-1));
+            Response.Cache.SetNoStore();
+            return RedirectToAction("Login");
+        }
+    }
+}
