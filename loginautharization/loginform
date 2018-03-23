@@ -1,0 +1,29 @@
+@model WebApplication2.Models.tbl_proc_login
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td>@Html.DisplayNameFor(s => s.username)</td>
+            <td>@Html.TextBoxFor(s => s.username)</td>
+            <td>@Html.ValidationMessageFor(s => s.username)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(s => s.password)</td>
+            <td>@Html.PasswordFor(s => s.password)</td>
+            <td>@Html.ValidationMessageFor(s => s.password)</td>
+        </tr>
+        <tr>
+            s
+            <td><input type="submit" value="Login" /></td>
+        </tr>
+
+    </table>
+
+}
